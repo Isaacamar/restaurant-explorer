@@ -407,26 +407,26 @@
     .bar-chart {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .bar-item {
-      display: flex;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 70px 1fr;
       gap: 8px;
+      align-items: center;
+      width: 100%;
     }
 
     .bar-label {
       font-size: 11px;
       color: #cbd5e1;
-      min-width: 80px;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
     }
 
     .bar {
-      flex: 1;
       height: 20px;
       background: linear-gradient(90deg, #3b82f6, #2563eb);
       border-radius: 3px;
