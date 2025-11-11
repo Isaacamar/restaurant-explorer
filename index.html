@@ -1538,14 +1538,14 @@
     }
   
     function createMarker(r, isSelected = false) {
-      const radius = isSelected ? 10 : 6;
+      const radius = isSelected ? 8 : 4;
       const marker = L.circleMarker([r.latitude, r.longitude], {
         radius: radius,
         fillColor: isSelected ? '#3b82f6' : (gradeColors[r.grade] || '#94a3b8'),
-        color: '#fff',
-        weight: isSelected ? 2.5 : 1.5,
-        opacity: 1,
-        fillOpacity: 0.8,
+        color: 'transparent',
+        weight: 0,
+        opacity: 0,
+        fillOpacity: isSelected ? 0.95 : 0.7,
         className: isSelected ? 'marker-highlight' : ''
       });
       const gUrl = `https://www.google.com/maps/search/${encodeURIComponent(r.dba + ' ' + r.building + ' ' + r.street)}`;
@@ -1753,6 +1753,13 @@
     }
 
     function updateMap() {
+      // Skip marker/cluster rendering if in web mode
+      if (isWebMode) {
+        // Just redraw the web, don't show markers
+        renderFoodWeb();
+        return;
+      }
+
       markersLayer.clearLayers();
       clusterGroup.clearLayers();
       restaurantMarkers.clear();
@@ -1780,11 +1787,6 @@
           const g = new L.featureGroup(markers);
           map.fitBounds(g.getBounds(), { padding: [50, 50] });
         }
-      }
-
-      // Redraw food web if enabled
-      if (isWebMode) {
-        renderFoodWeb();
       }
     }
   
