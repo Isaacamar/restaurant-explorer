@@ -602,18 +602,406 @@
       z-index: 400;
     }
 
+    /* Insights Carousel */
+    .insights-carousel {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      max-width: 380px;
+      width: calc(100% - 32px);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      padding: 16px 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      pointer-events: auto;
+    }
+    .insights-carousel.hidden {
+      display: none;
+    }
+    .insight-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .insight-counter {
+      font-size: 11px;
+      color: #94a3b8;
+      text-align: right;
+      margin-top: 8px;
+      font-style: italic;
+    }
+    .carousel-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      gap: 8px;
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 4px;
+      flex: 1;
+      justify-content: center;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(94, 165, 239, 0.3);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .dot.active {
+      background: #3b82f6;
+      width: 16px;
+      border-radius: 3px;
+    }
+    .carousel-arrow {
+      background: transparent;
+      border: none;
+      color: #3b82f6;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 4px 8px;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-arrow:hover {
+      color: #60a5fa;
+      transform: scale(1.2);
+    }
+
+    /* Onboarding Modal */
+    .onboarding-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      backdrop-filter: blur(4px);
+    }
+    .onboarding-overlay.hidden {
+      display: none;
+    }
+    .onboarding-modal {
+      background: linear-gradient(135deg, #0f172a 0%, #1a2332 50%, #0f172a 100%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: 16px;
+      max-width: 700px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 80px rgba(59, 130, 246, 0.2), 0 0 40px rgba(59, 130, 246, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    .onboarding-content {
+      padding: 60px 50px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .onboarding-icon {
+      font-size: 80px;
+      margin-bottom: 30px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .onboarding-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .onboarding-subtitle {
+      font-size: 16px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      max-width: 500px;
+    }
+    .onboarding-highlight {
+      color: #60a5fa;
+      font-weight: 600;
+    }
+    .onboarding-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 30px;
+      width: 100%;
+      max-width: 450px;
+    }
+    .onboarding-feature {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+    .onboarding-feature-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .onboarding-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      border-top: 1px solid rgba(59, 130, 246, 0.2);
+      gap: 12px;
+    }
+    .onboarding-nav {
+      display: flex;
+      gap: 8px;
+    }
+    .onboarding-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.3);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .onboarding-dot.active {
+      background: #3b82f6;
+      width: 24px;
+      border-radius: 4px;
+    }
+    .onboarding-btn {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .onboarding-btn-secondary {
+      background: transparent;
+      color: #94a3b8;
+      border: 1px solid #2a3041;
+    }
+    .onboarding-btn-secondary:hover {
+      background: #1a2332;
+      color: #cbd5e1;
+      border-color: #3a4051;
+    }
+    .onboarding-btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      border: none;
+    }
+    .onboarding-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    }
+    .onboarding-progress {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    /* Mobile Responsive Design */
+    @media (max-width: 768px) {
+      /* Keep filter panel visible but narrower */
+      .filter-panel {
+        width: 280px;
+        max-height: 60vh;
+        top: 12px;
+        left: 8px;
+        z-index: 1002;
+      }
+
+      /* Keep toggle buttons horizontal but move lower to avoid overlap */
+      .toggle-buttons {
+        flex-direction: row;
+        gap: 6px;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-wrap: wrap;
+        justify-content: center;
+        width: auto;
+        max-width: 90%;
+        z-index: 1000;
+      }
+
+      .toggle-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+      }
+
+      /* Move insights carousel to bottom right */
+      .insights-carousel {
+        top: auto;
+        bottom: 20px;
+        right: 8px;
+        left: auto;
+        max-width: 300px;
+        width: auto;
+      }
+
+      .insight-text {
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+
+      .carousel-nav {
+        margin-top: 8px;
+        gap: 6px;
+      }
+
+      /* App title - slightly smaller */
+      .app-title {
+        font-size: 20px;
+        top: 40px;
+      }
+
+      /* Analytics sidebar - full width bottom sheet */
+      .analytics-sidebar {
+        width: 100% !important;
+        max-width: 100%;
+        right: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        top: auto;
+        max-height: 55vh;
+        border-radius: 16px 16px 0 0;
+        z-index: 999;
+      }
+
+      /* Selected panel - full width on mobile */
+      .selected-panel {
+        max-height: 65vh;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 16px 16px 0 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Extra small screens */
+      .filter-panel {
+        width: 260px;
+        max-height: 55vh;
+        top: 10px;
+        left: 6px;
+        z-index: 1002;
+      }
+
+      .filter-content {
+        padding: 16px;
+      }
+
+      .toggle-buttons {
+        top: 90px;
+        gap: 5px;
+        z-index: 1000;
+      }
+
+      .toggle-btn {
+        padding: 5px 8px;
+        font-size: 10px;
+      }
+
+      .app-title {
+        font-size: 18px;
+        top: 35px;
+      }
+
+      .insights-carousel {
+        bottom: 16px;
+        right: 6px;
+        max-width: 280px;
+        padding: 12px 16px;
+      }
+
+      .insight-text {
+        font-size: 11px;
+      }
+
+      .onboarding-modal {
+        max-width: 95%;
+        max-height: 90vh;
+      }
+
+      .onboarding-content {
+        padding: 40px 30px;
+      }
+
+      .onboarding-title {
+        font-size: 24px;
+      }
+
+      .onboarding-subtitle {
+        font-size: 14px;
+      }
+
+      .onboarding-features {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 
   <!-- Neighborhood typeahead list -->
   <datalist id="neighborhoodsList"></datalist>
 </head>
 <body>
+  <!-- Onboarding Modal -->
+  <div class="onboarding-overlay" id="onboardingOverlay">
+    <div class="onboarding-modal">
+      <div class="onboarding-content" id="onboardingContent"></div>
+      <div class="onboarding-footer">
+        <div class="onboarding-nav" id="dotsNav"></div>
+        <div class="onboarding-progress"><span id="progressText">1</span> / 5</div>
+        <div>
+          <button class="onboarding-btn onboarding-btn-secondary" id="onboardingSkip">Skip</button>
+          <button class="onboarding-btn onboarding-btn-primary" id="onboardingNext">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="map-container">
       <div id="map"></div>
 
       <!-- Floating title -->
       <div class="app-title">Dine Scout</div>
+
+      <!-- Insights Carousel -->
+      <div class="insights-carousel hidden" id="insightsCarousel">
+        <div class="insight-text" id="insightText"></div>
+        <div class="carousel-nav">
+          <button class="carousel-arrow" id="prevInsight" title="Previous insight">←</button>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <button class="carousel-arrow" id="nextInsight" title="Next insight">→</button>
+        </div>
+        <div class="insight-counter" id="insightCounter"></div>
+      </div>
 
       <!-- Floating filter panel -->
       <div class="filter-panel" id="filterPanel">
@@ -923,10 +1311,25 @@
       ['unknown','Unknown']
     ]);
 
-    function normCuisine(s) {
+    function normCuisine(s, dba = '') {
       if (!s) return 'Unknown';
       let t = s.trim().toLowerCase().replace(/\s+/g,' ');
       t = CUISINE_ALIAS.get(t) ?? t.replace(/\b\w/g, c => c.toUpperCase());
+
+      // Smart reclassification for overly-broad "American" category
+      if (t === 'American' && dba) {
+        const name = dba.toLowerCase();
+        // Reclassify based on restaurant name keywords
+        if (name.includes('burger') || name.includes('hamburger') || name.includes('beef')) return 'Burger';
+        if (name.includes('steak') || name.includes('steakhouse')) return 'Steakhouse';
+        if (name.includes('deli') || name.includes('sandwich') || name.includes('sub')) return 'Deli/Sandwich';
+        if (name.includes('bbq') || name.includes('barbecue') || name.includes('ribs')) return 'Barbecue';
+        if (name.includes('diner') || name.includes('coffee shop')) return 'Diner';
+        if (name.includes('chicken') || name.includes('fried chicken')) return 'Fried Chicken';
+        if (name.includes('seafood')) return 'Seafood';
+        if (name.includes('wings') || name.includes('wing')) return 'Wings';
+        // Keep generic "American" for the rest
+      }
       return t;
     }
 
@@ -968,7 +1371,7 @@
         street: r.street || '',
         boro: r.boro,
         zipcode: r.zipcode || '',
-        cuisine_description: normCuisine(r.cuisine_description || 'Unknown'),
+        cuisine_description: normCuisine(r.cuisine_description || 'Unknown', r.dba || ''),
         lat, lon,
         dates: new Set(), // yyyy-mm-dd
         latestDate: null,
@@ -993,25 +1396,26 @@
       byCamis.set(camis, entry);
     }
 
-    // finalize unique restaurants
-    allRestaurants = Array.from(byCamis.values()).map(v => ({
-      camis: v.camis,
-      dba: v.dba,
-      building: v.building,
-      street: v.street,
-      boro: v.boro,
-      zipcode: v.zipcode,
-      cuisine_description: v.cuisine_description,
-      // keep grade fields only if you still use them; otherwise remove from UI
-      grade: v.grade || null,
-      inspection_date: v.latestDate ? v.latestDate.toISOString().slice(0,10) : null,
-      latitude: v.lat,
-      longitude: v.lon,
-      // compact history (dates only; feel free to drop if you don’t need)
-      date_history: Array.from(v.dates).sort().reverse()
-    }));
+    // finalize unique restaurants - only include those with valid grades
+    allRestaurants = Array.from(byCamis.values())
+      .filter(v => v.grade && v.grade !== null) // Only keep restaurants with actual grades
+      .map(v => ({
+        camis: v.camis,
+        dba: v.dba,
+        building: v.building,
+        street: v.street,
+        boro: v.boro,
+        zipcode: v.zipcode,
+        cuisine_description: v.cuisine_description,
+        grade: v.grade,
+        inspection_date: v.latestDate ? v.latestDate.toISOString().slice(0,10) : null,
+        latitude: v.lat,
+        longitude: v.lon,
+        // compact history (dates only; feel free to drop if you don't need)
+        date_history: Array.from(v.dates).sort().reverse()
+      }));
 
-    console.log(`Loaded ${allRestaurants.length} unique, cleaned restaurants`);
+    console.log(`Loaded ${allRestaurants.length} unique, cleaned restaurants (filtered by valid grades)`);
     return true;
   } catch (e) {
     console.error('Data fetch error:', e);
@@ -1550,6 +1954,429 @@
       `;
     }
 
+    let currentInsightIndex = 0;
+    let allInsights = [];
+    let insightsAutoRotateInterval = null;
+
+    function generateInsights() {
+      const insights = [];
+
+      // 1. Most diverse borough
+      const boroughCuisines = {};
+      allRestaurants.forEach(r => {
+        if (!boroughCuisines[r.boro]) boroughCuisines[r.boro] = new Set();
+        boroughCuisines[r.boro].add(r.cuisine_description);
+      });
+      const mostDiverse = Object.entries(boroughCuisines)
+        .sort((a, b) => b[1].size - a[1].size)[0];
+      if (mostDiverse) {
+        insights.push({
+          text: `🍽️ ${mostDiverse[0]} has ${mostDiverse[1].size} different cuisines - the most diverse borough in the city`,
+          metric: `Unique cuisines: ${mostDiverse[1].size}`
+        });
+      }
+
+      // 2. Grade A percentage by borough
+      const gradesByBorough = {};
+      allRestaurants.forEach(r => {
+        if (!gradesByBorough[r.boro]) gradesByBorough[r.boro] = { a: 0, total: 0 };
+        gradesByBorough[r.boro].total++;
+        if (r.grade === 'A') gradesByBorough[r.boro].a++;
+      });
+      const healthiestBorough = Object.entries(gradesByBorough)
+        .map(([name, data]) => ({ name, percent: (data.a / data.total * 100).toFixed(1) }))
+        .sort((a, b) => b.percent - a.percent)[0];
+      if (healthiestBorough) {
+        insights.push({
+          text: `✨ ${healthiestBorough.name} restaurants are crushing it - ${healthiestBorough.percent}% have Grade A inspections`,
+          metric: `Grade A rate: ${healthiestBorough.percent}%`
+        });
+      }
+
+      // 3. Most common cuisine
+      const cuisineCount = {};
+      allRestaurants.forEach(r => {
+        cuisineCount[r.cuisine_description] = (cuisineCount[r.cuisine_description] || 0) + 1;
+      });
+      const topCuisine = Object.entries(cuisineCount)
+        .sort((a, b) => b[1] - a[1])[0];
+      if (topCuisine) {
+        insights.push({
+          text: `🍕 ${topCuisine[0]} dominates - there are ${topCuisine[1]} ${topCuisine[0]} restaurants in NYC`,
+          metric: `Total ${topCuisine[0]}: ${topCuisine[1]}`
+        });
+      }
+
+      // 4. Rarest cuisine
+      const rareCuisines = Object.entries(cuisineCount)
+        .sort((a, b) => a[1] - b[1])
+        .slice(0, 5);
+      if (rareCuisines.length > 0) {
+        const rarest = rareCuisines[0];
+        insights.push({
+          text: `🌟 Hunting for something exotic? There's only 1 ${rarest[0]} restaurant in NYC - real gems!`,
+          metric: `Rarest cuisines: Only 1-2 each`
+        });
+      }
+
+      // 5. Restaurant count by borough
+      const boroCount = {};
+      allRestaurants.forEach(r => {
+        boroCount[r.boro] = (boroCount[r.boro] || 0) + 1;
+      });
+      const mostRestaurants = Object.entries(boroCount)
+        .sort((a, b) => b[1] - a[1])[0];
+      if (mostRestaurants) {
+        insights.push({
+          text: `🏙️ ${mostRestaurants[0]} is a food mecca with ${mostRestaurants[1]} inspected restaurants`,
+          metric: `${mostRestaurants[0]} total: ${mostRestaurants[1]} restaurants`
+        });
+      }
+
+      // 6. Grade C prevalence
+      const gradeC = allRestaurants.filter(r => r.grade === 'C').length;
+      const gradeCPercent = (gradeC / allRestaurants.length * 100).toFixed(1);
+      insights.push({
+        text: `⚠️ Only ${gradeCPercent}% of NYC restaurants have Grade C - most places are doing well`,
+        metric: `Grade C restaurants: ${gradeC}`
+      });
+
+      // 7. Average restaurants per zipcode
+      const zipCount = {};
+      allRestaurants.forEach(r => {
+        if (r.zipcode) zipCount[r.zipcode] = (zipCount[r.zipcode] || 0) + 1;
+      });
+      const avgZipRestaurants = (Object.values(zipCount).reduce((a, b) => a + b, 0) / Object.keys(zipCount).length).toFixed(1);
+      insights.push({
+        text: `📍 On average, each NYC zip code has ${avgZipRestaurants} inspected restaurants`,
+        metric: `Average restaurants per zip: ${avgZipRestaurants}`
+      });
+
+      // 8. Top 5 cuisines
+      const top5Cuisines = Object.entries(cuisineCount)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5)
+        .map(([name, count]) => `${name} (${count})`);
+      insights.push({
+        text: `🍴 The top 5 cuisines in NYC: ${top5Cuisines.join(', ')}`,
+        metric: `Top cuisines dominate the market`
+      });
+
+      // 9. Chinese restaurants
+      const chineseCount = allRestaurants.filter(r => r.cuisine_description.toLowerCase().includes('chinese')).length;
+      insights.push({
+        text: `🥢 There are ${chineseCount} Chinese restaurants in NYC - explore their distribution across neighborhoods`,
+        metric: `Chinese restaurants: ${chineseCount}`
+      });
+
+      // 10. Italian restaurants
+      const italianCount = allRestaurants.filter(r => r.cuisine_description.toLowerCase().includes('italian')).length;
+      insights.push({
+        text: `🍝 Italian cuisine has ${italianCount} locations - the second most represented food culture`,
+        metric: `Italian restaurants: ${italianCount}`
+      });
+
+      // 11. Pizza places
+      const pizzaCount = allRestaurants.filter(r => r.cuisine_description.toLowerCase().includes('pizza')).length;
+      insights.push({
+        text: `🍕 NYC has ${pizzaCount} pizza shops - enough for every New Yorker to have a favorite`,
+        metric: `Pizza places: ${pizzaCount}`
+      });
+
+      // 12. Seafood restaurants
+      const seafoodCount = allRestaurants.filter(r => r.cuisine_description.toLowerCase().includes('seafood')).length;
+      insights.push({
+        text: `🦞 Seafood enthusiasts rejoice - there are ${seafoodCount} seafood restaurants to explore`,
+        metric: `Seafood restaurants: ${seafoodCount}`
+      });
+
+      // 13. Vegetarian options
+      const vegetarianCount = allRestaurants.filter(r => r.cuisine_description.toLowerCase().includes('vegetarian')).length;
+      insights.push({
+        text: `🥬 NYC is surprisingly vegan-friendly with ${vegetarianCount} vegetarian/vegan restaurants`,
+        metric: `Vegetarian restaurants: ${vegetarianCount}`
+      });
+
+      // 14. Borough with most cuisines per restaurant
+      const cuisinesDensity = Object.entries(boroughCuisines)
+        .map(([name, cuisines]) => ({
+          name,
+          ratio: (cuisines.size / boroCount[name]).toFixed(2),
+          total: boroCount[name]
+        }))
+        .sort((a, b) => b.ratio - a.ratio)[0];
+      if (cuisinesDensity) {
+        insights.push({
+          text: `🌍 ${cuisinesDensity.name} has the most diverse food scene per capita - ${cuisinesDensity.ratio} cuisines per 10 restaurants`,
+          metric: `Cuisine density: ${cuisinesDensity.ratio} per 10 restaurants`
+        });
+      }
+
+      return insights;
+    }
+
+    function displayInsight(index) {
+      if (allInsights.length === 0) return;
+      currentInsightIndex = (index + allInsights.length) % allInsights.length;
+      const insight = allInsights[currentInsightIndex];
+
+      document.getElementById('insightText').textContent = insight.text;
+      document.getElementById('insightCounter').textContent = `${currentInsightIndex + 1} of ${allInsights.length}`;
+
+      // Update dots
+      document.querySelectorAll('.dot').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentInsightIndex);
+      });
+    }
+
+    function initInsightsCarousel() {
+      allInsights = generateInsights();
+      if (allInsights.length === 0) return;
+
+      const carousel = document.getElementById('insightsCarousel');
+      const dotsContainer = document.getElementById('carouselDots');
+
+      // Create dots
+      allInsights.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          clearInterval(insightsAutoRotateInterval);
+          displayInsight(idx);
+          startAutoRotate();
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      // Set up arrow buttons
+      document.getElementById('prevInsight').addEventListener('click', () => {
+        clearInterval(insightsAutoRotateInterval);
+        displayInsight(currentInsightIndex - 1);
+        startAutoRotate();
+      });
+      document.getElementById('nextInsight').addEventListener('click', () => {
+        clearInterval(insightsAutoRotateInterval);
+        displayInsight(currentInsightIndex + 1);
+        startAutoRotate();
+      });
+
+      carousel.classList.remove('hidden');
+      displayInsight(0);
+      startAutoRotate();
+    }
+
+    function startAutoRotate() {
+      clearInterval(insightsAutoRotateInterval);
+      insightsAutoRotateInterval = setInterval(() => {
+        displayInsight(currentInsightIndex + 1);
+      }, 5000); // Rotate every 5 seconds
+    }
+
+    // Onboarding Flow
+    let currentOnboardingStep = 0;
+    const onboardingSteps = [
+      {
+        icon: '🗽',
+        title: 'Welcome to Dine Scout',
+        subtitle: 'Explore NYC\'s <span class="onboarding-highlight">food ecosystem</span> - discover patterns, trends, and hidden gems across the five boroughs. Data sourced from <span class="onboarding-highlight">NYC Department of Health restaurant inspections</span>.',
+        features: [
+          { icon: '🌍', text: 'Explore how cuisines cluster and evolve' },
+          { icon: '📊', text: 'See health grades & safety records' },
+          { icon: '🔍', text: 'Uncover neighborhoods\' food cultures' },
+          { icon: '📈', text: 'Track food diversity by district' }
+        ]
+      },
+      {
+        icon: '🌿',
+        title: 'Food Ecosystems in Motion',
+        subtitle: 'Like natural ecosystems, NYC\'s food scene thrives on <span class="onboarding-highlight">relationships and cycles</span>. Cuisines influence each other, neighborhoods evolve, and food shapes culture.',
+        features: [
+          { icon: '🍽️', text: 'Different cuisines coexist & influence' },
+          { icon: '🏙️', text: 'Each neighborhood has unique patterns' },
+          { icon: '⚡', text: 'Health & safety create natural cycles' },
+          { icon: '🌐', text: 'Immigration & culture drive diversity' }
+        ]
+      },
+      {
+        icon: '🔍',
+        title: 'How to Explore',
+        subtitle: 'Use filters to narrow down by <span class="onboarding-highlight">neighborhood, cuisine, grade</span>, or borough. Watch insights appear in real-time. Dataset: ~15,000 NYC restaurants with valid health grades (A/B/C).',
+        features: [
+          { icon: '📍', text: 'Search by neighborhood or ZIP' },
+          { icon: '🍜', text: 'Filter by cuisine type' },
+          { icon: '⭐', text: 'Sort by health grade (A/B/C)' },
+          { icon: '📋', text: 'Toggle map & list views' }
+        ]
+      },
+      {
+        icon: '✨',
+        title: 'Automatic Insights',
+        subtitle: 'Every search unlocks <span class="onboarding-highlight">new data stories</span>. See statistics, charts, and patterns emerge as you explore different areas.',
+        features: [
+          { icon: '📊', text: 'Real-time analytics sidebar' },
+          { icon: '💡', text: 'Rotating data insights' },
+          { icon: '📈', text: 'Cuisine & grade breakdowns' },
+          { icon: '🎯', text: 'Discover neighborhoods\' strengths' }
+        ]
+      },
+      {
+        icon: '🚀',
+        title: 'Ready to Explore?',
+        subtitle: 'Start with a neighborhood you love, a cuisine you\'re curious about, or dive in randomly. Every click reveals something new about how NYC eats.',
+        features: [
+          { icon: '🎲', text: 'Use Random button for discovery' },
+          { icon: '🗺️', text: 'Pan & zoom to explore visually' },
+          { icon: '💬', text: 'Click markers for details' },
+          { icon: '🔄', text: 'Combine multiple filters' }
+        ]
+      }
+    ];
+
+    function renderOnboardingStep(stepIndex) {
+      try {
+        const step = onboardingSteps[stepIndex];
+        if (!step) {
+          console.error('Step not found:', stepIndex);
+          return;
+        }
+
+        const content = document.getElementById('onboardingContent');
+        if (!content) {
+          console.error('onboardingContent element not found');
+          return;
+        }
+
+        let featuresHTML = '';
+        if (step.features && step.features.length > 0) {
+          featuresHTML = `
+            <div class="onboarding-features">
+              ${step.features.map(f => `
+                <div class="onboarding-feature">
+                  <div class="onboarding-feature-icon">${f.icon}</div>
+                  <div>${f.text}</div>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }
+
+        content.innerHTML = `
+          <div class="onboarding-icon">${step.icon}</div>
+          <h2 class="onboarding-title">${step.title}</h2>
+          <p class="onboarding-subtitle">${step.subtitle}</p>
+          ${featuresHTML}
+        `;
+
+        console.log('Rendered step:', stepIndex, step.title);
+
+        // Update dots
+        document.querySelectorAll('.onboarding-dot').forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === stepIndex);
+        });
+
+        // Update progress
+        const progressText = document.getElementById('progressText');
+        if (progressText) progressText.textContent = stepIndex + 1;
+
+        // Update button text
+        const nextBtn = document.getElementById('onboardingNext');
+        if (nextBtn) {
+          if (stepIndex === onboardingSteps.length - 1) {
+            nextBtn.textContent = 'Start Exploring';
+          } else {
+            nextBtn.textContent = 'Next';
+          }
+        }
+      } catch (e) {
+        console.error('Error rendering onboarding step:', e);
+      }
+    }
+
+    function initOnboarding() {
+      const overlay = document.getElementById('onboardingOverlay');
+      if (!overlay) {
+        console.error('Onboarding overlay not found');
+        return;
+      }
+
+      // Check if user already saw onboarding
+      if (localStorage.getItem('dinescoutOnboardingComplete')) {
+        overlay.classList.add('hidden');
+        return;
+      }
+
+      // Make sure overlay is visible
+      overlay.classList.remove('hidden');
+
+      const dotsNav = document.getElementById('dotsNav');
+      const nextBtn = document.getElementById('onboardingNext');
+      const skipBtn = document.getElementById('onboardingSkip');
+
+      if (!dotsNav || !nextBtn || !skipBtn) {
+        console.error('Onboarding elements not found');
+        return;
+      }
+
+      // Create navigation dots
+      onboardingSteps.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.className = 'onboarding-dot';
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          currentOnboardingStep = idx;
+          renderOnboardingStep(idx);
+        });
+        dotsNav.appendChild(dot);
+      });
+
+      // Event listeners
+      nextBtn.addEventListener('click', () => {
+        if (currentOnboardingStep === onboardingSteps.length - 1) {
+          closeOnboarding();
+        } else {
+          currentOnboardingStep++;
+          renderOnboardingStep(currentOnboardingStep);
+        }
+      });
+
+      skipBtn.addEventListener('click', () => closeOnboarding(true));
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('hidden')) {
+          if (e.key === 'ArrowRight') {
+            nextBtn.click();
+          } else if (e.key === 'Escape') {
+            closeOnboarding();
+          }
+        }
+      });
+
+      // Render first step
+      console.log('Rendering onboarding step 0');
+      renderOnboardingStep(0);
+      console.log('Onboarding initialized');
+    }
+
+    function closeOnboarding(skipEarly = false) {
+      document.getElementById('onboardingOverlay').classList.add('hidden');
+      // Only mark complete if user finished all screens (not if they skip early)
+      if (!skipEarly) {
+        localStorage.setItem('dinescoutOnboardingComplete', 'true');
+      }
+    }
+
+    // Utility function to reset onboarding for testing
+    window.resetOnboarding = function() {
+      localStorage.removeItem('dinescoutOnboardingComplete');
+      document.getElementById('onboardingOverlay').classList.remove('hidden');
+      currentOnboardingStep = 0;
+      document.getElementById('dotsNav').innerHTML = '';
+      initOnboarding();
+      console.log('Onboarding reset - should now show');
+    };
+
     function updateAnalytics() {
       // Show analytics as long as there are filtered results - regardless of what filter was applied
       if (filteredRestaurants.length === 0) {
@@ -1583,6 +2410,7 @@
         filteredRestaurants = [...allRestaurants];
         updateMap();
         updateResultsCount();
+        initInsightsCarousel(); // Initialize carousel with insights
 
         document.getElementById('search').addEventListener('input', debounce(() => {
           applyFilters();
@@ -1641,6 +2469,11 @@
         });
       }
       document.getElementById('loading').classList.add('hidden');
+
+      // Initialize onboarding with small delay to ensure DOM is ready
+      setTimeout(() => {
+        initOnboarding();
+      }, 100);
 
       // Analytics controls - bind these AFTER DOM is ready
       const analyticsBtn = document.getElementById('analyticsToggle');
